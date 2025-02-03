@@ -145,8 +145,44 @@ a:hover {
 
 
 /* Logo */
-
 .logo {
     width: 100px;
     height: 100px;
+}
+
+/* Carrusel */
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.pantallas {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.pantalla {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.pantalla img {
+    width: 100%;
+    height: auto;
+    max-width: 120px;  /* Ajustar al tamaño deseado */
+    object-fit: cover;
+    margin-right: 10px;
 }
