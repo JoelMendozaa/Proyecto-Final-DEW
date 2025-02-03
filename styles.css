@@ -1,0 +1,152 @@
+/* Importar las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Barlow+Condensed:wght@400;700&family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Definir variables de color */
+:root {
+    --color-fondo: #141414; /* Negro Mate */
+    --color-texto: #FFFFFF; /* Blanco */
+    --color-primario: #E10600; /* Rojo Intenso */
+    --color-secundario: #FFD700; /* Amarillo Neón */
+    --color-gris: #3A3A3A; /* Gris Oscuro */
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados */
+h1, h2, h3, h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+/* Botones */
+button {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+}
+
+/* Enlaces */
+a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--color-primario);
+}
+
+/* Estilos para el Header */
+.header {
+    background-color: var(--color-fondo);  /* Negro Mate */
+    padding: 20px 0;  /* Espaciado superior e inferior */
+    font-family: 'Roboto', sans-serif;  /* Fuente general para el encabezado */
+}
+
+.nav .nav-list {
+    display: flex;  /* Usar Flexbox para la alineación horizontal */
+    justify-content: flex-end;  /* Alinear los enlaces a la derecha */
+    margin: 0;  /* Eliminar el margen por defecto */
+    padding: 0;  /* Eliminar el padding por defecto */
+    list-style: none;  /* Eliminar los puntos de la lista */
+}
+
+.nav .nav-item {
+    margin: 0 20px;  /* Espaciado entre los elementos de la lista */
+}
+
+.nav .nav-link {
+    color: var(--color-secundario);  /* Color de los enlaces en amarillo neón */
+    font-family: 'Oswald', sans-serif;  /* Fuente personalizada para los enlaces */
+    font-weight: 700;  /* Peso de la fuente */
+    text-decoration: none;  /* Eliminar subrayado */
+    font-size: 18px;  /* Tamaño de la fuente */
+    transition: 0.3s;  /* Transición suave al pasar el ratón */
+    text-transform: uppercase;  /* Texto en mayúsculas */
+}
+
+.nav .nav-link:hover {
+    color: var(--color-primario);  /* Cambio de color a rojo intenso */
+    border-bottom: 2px solid var(--color-primario);  /* Subrayado con color rojo */
+}
+
+.nav .btn {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.nav .btn:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+}
+
+/* Estilos para el contenido principal */
+.main {
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.hero-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5em;
+    color: var(--color-primario);
+}
+
+.hero-text {
+    font-size: 1.2em;
+    color: var(--color-texto);
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-gris);
+    text-align: center;
+    padding: 20px;
+    color: var(--color-texto);
+    width: 100%;
+}
+
+.footer-text {
+    font-size: 1em;
+    color: var(--color-texto);
+}
+
+
+/* Logo */
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
