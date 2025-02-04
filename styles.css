@@ -57,19 +57,39 @@ a:hover {
 
 /* Estilos para el Header */
 .header {
-    background-color: var(--color-fondo);  /* Negro Mate */
-    padding: 20px 0;  /* Espaciado superior e inferior */
-    font-family: 'Roboto', sans-serif;  /* Fuente general para el encabezado */
+    background-color: var(--color-fondo);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between; /* Separa el logo a la izquierda y los enlaces a la derecha */
+    align-items: center; /* Centra verticalmente el logo y los enlaces */
 }
 
-.nav .nav-list {
-    display: flex;  /* Usar Flexbox para la alineación horizontal */
-    justify-content: flex-end;  /* Alinear los enlaces a la derecha */
-    margin: 0;  /* Eliminar el margen por defecto */
-    padding: 0;  /* Eliminar el padding por defecto */
-    list-style: none;  /* Eliminar los puntos de la lista */
+/* Logo a la izquierda */
+.logo {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente */
 }
 
+.logo img {
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
+
+/* Mantener los enlaces a la derecha */
+.nav {
+    display: flex;
+    justify-content: flex-end; /* Mantiene los enlaces alineados a la derecha */
+    flex-grow: 1; /* Permite que la navegación ocupe el espacio restante */
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .nav .nav-item {
     margin: 0 20px;  /* Espaciado entre los elementos de la lista */
 }
@@ -144,45 +164,52 @@ a:hover {
 }
 
 
-/* Logo */
-.logo {
-    width: 100px;
-    height: 100px;
-}
-
-/* Carrusel */
-
+/* Estilos para el Carrusel */
 .carrusel {
     position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
+    max-width: 800px;
+    margin: 40px auto;
     overflow: hidden;
+    border: 2px solid var(--color-primario);
+    border-radius: 10px;
 }
 
-
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
-}
-.pantallas {
+.carrusel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.pantalla {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.carrusel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
 }
 
-.pantalla img {
+.carrusel-slide img {
     width: 100%;
-    height: auto;
-    max-width: 120px;  /* Ajustar al tamaño deseado */
-    object-fit: cover;
-    margin-right: 10px;
+    display: block;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-texto);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+.carrusel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carrusel-btn.prev {
+    left: 10px;
+}
+
+.carrusel-btn.next {
+    right: 10px;
 }

@@ -46,33 +46,27 @@ function updateLanguageButton() {
   languageButton.textContent = currentLanguage === "es" ? "🌍 Language" : "🌍 Idioma"
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const languageButton = document.getElementById("idioma-btn")
-  languageButton.addEventListener("click", translatePage)
-})
+let slideIndex = 0;
 
+function moveSlide(n) {
+    const slides = document.querySelectorAll('.carrusel-slide');
+    const totalSlides = slides.length;
 
+    slideIndex += n;
 
-
-let index = 0;
-
-function moverCarrusel(n) {
-    const imagenes = document.querySelector('.imagenes');
-    const totalImagenes = document.querySelectorAll('.imagenes img').length;
-
-    index += n;
-
-    if (index >= totalImagenes) {
-        index = 0;
-    } else if (index < 0) {
-        index = totalImagenes - 1;
+    if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
     }
 
-    // Mover el carrusel a la posición correcta
-    imagenes.style.transform = `translateX(${-index * 100}%)`;
+    const offset = -slideIndex * 100;
+    document.querySelector('.carrusel-container').style.transform = `translateX(${offset}%)`;
 }
 
-// Iniciar el carrusel automáticamente
-setInterval(() => {
-    moverCarrusel(1);
-}, 3000);
+// Opcional: Auto-play del carrusel
+function autoPlay() {
+    moveSlide(1);
+}
+
+setInterval(autoPlay, 5000); // Cambia de slide cada 5 segundos
