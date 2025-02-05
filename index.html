@@ -6,11 +6,10 @@
     <title>Tienda de Motos</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="./code.js"></script>
+    <script defer src="./code.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <div>
+    <div class="page-container">
         <header class="header">
             <div class="logo">
                 <img src="./images/SteelRiders.png" alt="logo">
@@ -22,78 +21,68 @@
                     <li class="nav-item"><a href="#" class="nav-link">Acerca de</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Carrito</a></li>
                     <li class="nav-item"><a href="./login.html" class="nav-link">Login</a></li>
-                    <li class="nav-item dropdown">
-                        <button id="idioma-btn" class="btn">🌍 Idioma</button>
-                        <ul id="idioma-menu" class="dropdown-menu">
-                            <li data-lang="es">Español</li>
-                            <li data-lang="en">English</li>
-                            <li data-lang="fr">Français</li>
-                            <li data-lang="de">Deutsch</li>
-                            <li data-lang="gl">Galego</li>
-                            <li data-lang="ca">Català</li>
-                            <li data-lang="zh-cn">中文</li>
-                            <li data-lang="ko">한국어</li>
-                            <li data-lang="ja">日本語</li>
-                        </ul>
-                    </li>                    
+                    <li class="nav-item">
+                        <select id="idioma-select" class="btn">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="gl">Galego</option>
+                            <option value="ca">Català</option>
+                            <option value="zh-cn">中文</option>
+                            <option value="ko">한국어</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </li>
                 </ul>
             </nav>
-        </header>        
-    </div>
+        </header>
 
+        <main class="main-content">
+            <div class="carrusel">
+                <div class="carrusel-container">
+                    <div class="carrusel-slide">
+                        <img src="./images/Honda1.webp" alt="Moto 1">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Kawasaki.webp" alt="Moto 2">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Yamaha.webp" alt="Moto 3">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/KTM.webp" alt="Moto 4">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Honda3.webp" alt="Moto 5">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Honda2.webp" alt="Moto 6">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Suzuki1.webp" alt="Moto 7">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Kawasaki2.webp" alt="Moto 8">
+                    </div>
+                    <div class="carrusel-slide">
+                        <img src="./images/Suzuki2.webp" alt="Moto 9">
+                    </div>
+                </div>
+                <button class="carrusel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carrusel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
 
-   <!-- Productos -->
-   <div class="carrusel">
-    <div class="carrusel-container">
-        <div class="carrusel-slide">
-            <img src="./images/Honda1.webp" alt="Moto 1">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Kawasaki.webp" alt="Moto 2">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Yamaha.webp" alt="Moto 3">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/KTM.webp" alt="Moto 4">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Honda3.webp" alt="Moto 5">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Honda2.webp" alt="Moto 6">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Suzuki1.webp" alt="Moto 7">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Kawasaki2.webp" alt="Moto 8">
-        </div>
-        <div class="carrusel-slide">
-            <img src="./images/Suzuki2.webp" alt="Moto 9">
-        </div>
-        <!-- Puedes agregar más slides según sea necesario -->
-    </div>
-    <button class="carrusel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carrusel-btn next" onclick="moveSlide(1)">&#10095;</button>
-</div>
+            <section class="hero">
+                <h1 class="hero-title">Bienvenido a nuestra tienda de motos</h1>
+                <p class="hero-text">Explora nuestra colección de motocicletas de alta gama.</p>
+            </section>
+        </main>
 
-
-    <!-- Contenido Principal -->
-    <div class="main">
-        <section class="hero">
-            <h1 class="hero-title">Bienvenido a nuestra tienda de motos</h1>
-            <p class="hero-text">Explora nuestra colección de motocicletas de alta gama.</p>
-        </section>
-       </div>
-
-       
-
-    <!-- Footer -->
-     <div>
         <footer class="footer">
             <p class="footer-text">&copy; 2024 Tienda de Motos. Todos los derechos reservados. Hecho por Joel Mendoza Domínguez</p>
         </footer>
-     </div>
+    </div>
 </body>
 </html>
+
