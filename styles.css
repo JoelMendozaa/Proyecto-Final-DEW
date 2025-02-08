@@ -47,31 +47,6 @@ button:hover {
   color: var(--color-fondo);
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: var(--color-fondo);
-  border: 1px solid var(--color-primario);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 150px;
-  z-index: 1000;
-}
-
-.dropdown-menu li {
-  padding: 10px;
-  color: var(--color-texto);
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: center;
-}
-
-.dropdown-menu li:hover {
-  background-color: var(--color-primario);
-  color: var(--color-fondo);
-}
-
 /* Enlaces */
 a {
   color: var(--color-secundario);
@@ -89,12 +64,13 @@ a:hover {
   padding: 20px;
   font-family: "Roboto", sans-serif;
   display: flex;
-  justify-content: space-between; /* Separa el logo a la izquierda y los enlaces a la derecha */
-  align-items: center; /* Centra verticalmente el logo y los enlaces */
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Logo a la izquierda */
 .logo {
+  flex: 0 0 auto;
   display: flex;
   align-items: center; /* Centra el logo verticalmente */
 }
@@ -106,9 +82,15 @@ a:hover {
 
 /* Mantener los enlaces a la derecha */
 .nav {
+  flex: 1 1 auto;
   display: flex;
-  justify-content: flex-end; /* Mantiene los enlaces alineados a la derecha */
-  flex-grow: 1; /* Permite que la navegación ocupe el espacio restante */
+  justify-content: center;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .nav-list {
@@ -137,42 +119,9 @@ a:hover {
   border-bottom: 2px solid var(--color-primario); /* Subrayado con color rojo */
 }
 
-.nav .btn {
-  font-family: "Oswald", sans-serif;
-  font-weight: 700;
-  background-color: var(--color-primario);
-  color: var(--color-texto);
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-transform: uppercase;
-}
-
-.nav .btn:hover {
-  background-color: var(--color-secundario);
-  color: var(--color-fondo);
-}
-
 /* Estilos para el contenido principal */
 .main {
   padding: 20px;
-}
-
-.hero {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.hero-title {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2.5em;
-  color: var(--color-primario);
-}
-
-.hero-text {
-  font-size: 1.2em;
-  color: var(--color-texto);
 }
 
 /* Footer */
@@ -192,7 +141,7 @@ a:hover {
 /* Estilos para el Carrusel */
 .carrusel {
   position: relative;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 40px auto;
   overflow: hidden;
   border: 2px solid var(--color-primario);
@@ -211,6 +160,8 @@ a:hover {
 
 .carrusel-slide img {
   width: 100%;
+  height: 600px;
+  object-fit: cover;
   display: block;
 }
 
@@ -277,24 +228,104 @@ a:hover {
   .carrusel {
     max-width: 100%;
   }
-
-  .hero-title {
-    font-size: 2em;
-  }
-
-  .hero-text {
-    font-size: 1em;
-  }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.5em;
-  }
-
-  .carrusel-btn {
-    font-size: 18px;
-    padding: 5px;
-  }
+/* Estilos para el popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  background-color: var(--color-gris);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px; /* Cambiar el ancho máximo */
+  width: 90%; /* Cambiar el ancho para que sea más pequeño */
+  position: relative;
+  transform: translateY(50px);
+  transition: transform 0.3s ease;
+  border: 2px solid var(--color-primario);
+  color: white;
+}
+
+.popup.show .popup-content {
+  transform: translateY(0);
+}
+
+.popup-inner {
+  display: flex;
+  gap: 20px;
+}
+
+.popup-img {
+  max-width: 200px;
+  height: auto;
+}
+
+.popup-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-info button {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-texto);
+}
+
+/* Ajustes para el select de idiomas */
+#idioma-select {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border: 1px solid var(--color-primario);
+}
+
+/* Ajustes para los iconos del header */
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons .nav-link {
+  color: var(--color-texto);
+  margin-right: 15px;
+}
+
+.nav-icons .nav-link:hover {
+  color: var(--color-secundario);
+}
+
+/* Ajustes para el contador del carrito */
+#cart-counter {
+  position: absolute;
+  top: -10px; /* Ajusta la posición vertical */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta para centrar */
+  z-index: 1; /* Asegúrate de que esté por encima del icono */
+}
