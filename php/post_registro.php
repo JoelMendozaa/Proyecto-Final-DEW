@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = json_decode($json, true);
 
     // Validar si los campos obligatorios están presentes
-    if (empty($data['nombre']) || empty($data['dni']) || empty($data['email']) || empty($data['telefono']) || empty($data['tarjetaCredito']) || empty($data['password'])) {
+    if (empty($data['nombre']) || empty($data['dni']) || empty($data['correo']) || empty($data['telefono']) || empty($data['tarjetaBanco']) || empty($data['password'])) {
         echo json_encode(['message' => 'Faltan datos necesarios', 'status' => 'error']);
         exit;
     }
@@ -23,23 +23,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Sanitizar los datos
     $nombre = htmlspecialchars($data['nombre']);
     $dni = htmlspecialchars($data['dni']);
-    $email = htmlspecialchars($data['email']);
+    $correo = htmlspecialchars($data['correo']);
     $telefono = htmlspecialchars($data['telefono']);
-    $tarjetaCredito = htmlspecialchars($data['tarjetaCredito']);
+    $tarjetaBanco = htmlspecialchars($data['tarjetaBanco']);
     $password = password_hash($data['password'], PASSWORD_BCRYPT);  // Encriptamos la contraseña
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO usuarios (nombre, dni, email, telefono, tarjetaCredito, password) 
-            VALUES (:nombre, :dni, :email, :telefono, :tarjetaCredito, :password)";
+    $sql = "INSERT INTO usuarios (nombre, dni, correo, telefono, tarjetaBanco, password) 
+            VALUES (:nombre, :dni, :correo, :telefono, :tarjetaBanco, :password)";
     
     // Ejecutar la consulta
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':dni', $dni);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':correo', $correo);
         $stmt->bindParam(':telefono', $telefono);
-        $stmt->bindParam(':tarjetaCredito', $tarjetaCredito);
+        $stmt->bindParam(':tarjetaBanco', $tarjetaBanco);
         $stmt->bindParam(':password', $password);
         
         if ($stmt->execute()) {
