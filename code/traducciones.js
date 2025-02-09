@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const idiomaSelect = document.getElementById("idioma-select")
-  
     // Objeto con las traducciones
     const traducciones = {
       es: {
