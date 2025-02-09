@@ -160,7 +160,7 @@ a:hover {
 
 .carrusel-slide img {
   width: 100%;
-  height: 600px;
+  height: 800px;
   object-fit: cover;
   display: block;
 }
@@ -230,74 +230,102 @@ a:hover {
   }
 }
 
-/* Estilos para el popup */
+/* Estilos generales del pop-up */
 .popup {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
 .popup.show {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
 
 .popup-content {
-  background-color: var(--color-gris);
+  background: white;
   padding: 20px;
   border-radius: 10px;
-  max-width: 400px; /* Cambiar el ancho máximo */
-  width: 90%; /* Cambiar el ancho para que sea más pequeño */
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   position: relative;
-  transform: translateY(50px);
-  transition: transform 0.3s ease;
-  border: 2px solid var(--color-primario);
-  color: white;
 }
 
-.popup.show .popup-content {
-  transform: translateY(0);
-}
-
-.popup-inner {
-  display: flex;
-  gap: 20px;
-}
-
-.popup-img {
-  max-width: 200px;
-  height: auto;
-}
-
-.popup-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.popup-info button {
-  align-self: flex-end;
-  margin-top: auto;
-}
-
+/* Botón de cerrar */
 .close-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 15px;
   font-size: 24px;
   cursor: pointer;
-  color: var(--color-texto);
 }
+
+/* Contenido interno del pop-up */
+.popup-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.popup-info {
+  margin-top: 15px;
+}
+
+/* Imagen del pop-up */
+#popup-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Botón de añadir al carrito */
+.btn-success {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+
+/* Botón de añadir al carrito */
+.btn-success {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
 
 /* Ajustes para el select de idiomas */
 #idioma-select {
@@ -321,11 +349,42 @@ a:hover {
   color: var(--color-secundario);
 }
 
-/* Ajustes para el contador del carrito */
 #cart-counter {
   position: absolute;
-  top: -10px; /* Ajusta la posición vertical */
-  left: 50%; /* Centra horizontalmente */
-  transform: translateX(-50%); /* Ajusta para centrar */
-  z-index: 1; /* Asegúrate de que esté por encima del icono */
+  top: -5px; 
+  right: -5px; 
+  transform: translate(50%, -50%);
+  z-index: 1; 
+  font-size: 16px;
+  padding: 5px 10px; 
+}
+
+/* Asegura que el contenedor del carrito tenga position: relative */
+.nav-icons a {
+  position: relative;
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+  .popup-content {
+    max-width: 300px; /* Reducir aún más en pantallas pequeñas */
+    padding: 10px;
+  }
+
+  .popup-img {
+    max-width: 100px;
+  }
+
+  .popup-info h3 {
+    font-size: 16px;
+  }
+
+  .popup-info p {
+    font-size: 12px;
+  }
+
+  .popup-info button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

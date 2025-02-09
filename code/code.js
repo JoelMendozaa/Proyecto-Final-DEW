@@ -40,3 +40,31 @@ function addToCart() {
   document.getElementById("cart-counter").textContent = cartCount;
   document.getElementById("cart-counter").classList.remove("d-none");
 }
+
+/* LOGIN Y REGISTRO */
+
+function showPopupLogin() {
+  document.getElementById('popup-login').style.display = 'block';
+}
+
+function showPopupRegister() {
+  document.getElementById('popup-register').style.display = 'block';
+}
+
+function closePopup(type) {
+  if (type === 'login') {
+      document.getElementById('popup-login').style.display = 'none';
+  } else if (type === 'register') {
+      document.getElementById('popup-register').style.display = 'none';
+  }
+}
+
+// Close popup if click outside
+window.onclick = function(event) {
+  if (event.target == document.getElementById('popup-login')) {
+      closePopup('login');
+  }
+  if (event.target == document.getElementById('popup-register')) {
+      closePopup('register');
+  }
+}
