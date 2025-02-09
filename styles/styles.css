@@ -230,47 +230,35 @@ a:hover {
   }
 }
 
-/* Estilos generales del pop-up */
+/* Estilos actualizados para el popup */
 .popup {
-  display: flex;
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
   justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease;
-}
-
-.popup.show {
-  visibility: visible;
-  opacity: 1;
+  align-items: center; /* Centrado del popup */
 }
 
 .popup-content {
-  background: white;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
   padding: 20px;
+  border: 1px solid var(--color-primario);
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 600px;
   width: 90%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
 }
 
-/* Botón de cerrar */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Contenido interno del pop-up */
 .popup-inner {
   display: flex;
   flex-direction: column;
@@ -278,23 +266,50 @@ a:hover {
   text-align: center;
 }
 
+.popup-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  object-fit: contain;  /* Asegura que la imagen se ajuste sin recortarse */
+}
+
 .popup-info {
   margin-top: 15px;
 }
 
-/* Imagen del pop-up */
-#popup-img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  border-radius: 8px;
+#popup-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-secundario);
+}
+
+#popup-desc {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--color-texto);
+}
+
+.close-btn {
+  color: var(--color-texto);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-/* Botón de añadir al carrito */
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--color-secundario);
+  text-decoration: none;
+}
+
 .btn-success {
-  background: #28a745;
-  color: white;
+  background: var(--color-primario);
+  color: var(--color-texto);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
@@ -305,25 +320,14 @@ a:hover {
 }
 
 .btn-success:hover {
-  background: #218838;
+  background: var(--color-secundario);
+  color: var(--color-fondo);
 }
 
-
-/* Botón de añadir al carrito */
-.btn-success {
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-top: 10px;
-  transition: background 0.3s;
-}
-
-.btn-success:hover {
-  background: #218838;
+.popup,
+.popup-login,
+.popup-register {
+  display: none;  /* Asegura que los popups estén ocultos al inicio */
 }
 
 
@@ -364,27 +368,44 @@ a:hover {
   position: relative;
 }
 
-/* Responsividad */
+/* Responsividad adicional para el popup */
 @media (max-width: 480px) {
   .popup-content {
-    max-width: 300px; /* Reducir aún más en pantallas pequeñas */
+    max-width: 300px;
     padding: 10px;
   }
 
   .popup-img {
-    max-width: 100px;
+    max-width: 100%;
   }
 
-  .popup-info h3 {
-    font-size: 16px;
+  #popup-title {
+    font-size: 18px;
   }
 
-  .popup-info p {
-    font-size: 12px;
+  #popup-desc {
+    font-size: 14px;
   }
 
-  .popup-info button {
-    font-size: 12px;
-    padding: 6px 12px;
+  .btn-success {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .popup-inner {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .popup-inner img {
+    max-width: 50%;
+    margin-right: 20px;
+  }
+
+  .popup-info {
+    text-align: left;
+    flex: 1;
   }
 }
