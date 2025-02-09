@@ -328,7 +328,27 @@ a:hover {
 .popup-login,
 .popup-register {
   display: none;  /* Asegura que los popups estén ocultos al inicio */
+  justify-content: center;
+  align-items: center;
 }
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-item .dropdown-menu {
+  background-color: #343a40;
+  border-radius: 5px;
+}
+
+.nav-item .dropdown-item {
+  color: white;
+}
+.nav-item .dropdown-item:hover {
+  background-color: #007bff;
+  color: white;
+}
+
 
 
 /* Ajustes para el select de idiomas */
