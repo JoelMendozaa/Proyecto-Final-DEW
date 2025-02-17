@@ -1,4 +1,4 @@
-const BASE_URL = "http://192.168.216.110/Proyecto-Final-DEW/";
+const BASE_URL = "http://localhost/Proyecto-Final-DEW/";
 
 // Import jQuery
 $(document).ready(() => {
